@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="陵园设计专业平台，提供墓园规划、景观设计、纪念设施建设及生态安葬解决方案。我们专注于营造庄重、肃穆且富有生机的逝者安息环境，致力于打造具有人文关怀的现代化殡葬建筑。">
+    <meta name="keywords" content="陵园设计,墓园规划,殡葬建筑,景观设计,生态安葬,纪念设施,骨灰堂设计">
+    <title>陵园设计-专业墓园规划与人文纪念空间营造</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4a5d5c; /* 深青色，象征宁静与永恒 */
+            --secondary-color: #8c9a99; /* 中间色，用于辅助 */
+            --accent-color: #d4af37; /* 金色，象征尊崇与荣誉 */
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e0e0e0;
+            --container-width: 1200px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* 布局容器 */
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            color: var(--text-main);
+            font-weight: 500;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            padding: 8px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #3a4a49;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 600px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://picsum.photos/seed/graveyard1/1920/1080');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn-primary, .btn-outline {
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #fff;
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #bfa030;
+            border-color: #bfa030;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* 核心价值 */
+        .features {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background-color: rgba(74, 93, 92, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+        }
+
+        .feature-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* 设计理念 */
+        .design-concept {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .concept-layout {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .concept-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .concept-image img {
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .concept-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            z-index: -1;
+        }
+
+        .concept-content {
+            flex: 1;
+        }
+
+        .concept-content h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .concept-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .concept-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-main);
+        }
+
+        .concept-list li::before {
+            content: '✔';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* 服务项目 */
+        .services {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 8px;
+            transition: box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-color: var(--primary-color);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* 案例展示 */
+        .showcase {
+            padding: 80px 0;
+            background-color: #f2f4f3;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .showcase-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .showcase-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .showcase-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .showcase-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .showcase-item:hover .showcase-overlay {
+            opacity: 1;
+        }
+
+        .showcase-overlay h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .showcase-overlay p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        /* 常见问题 */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            padding: 20px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        .faq-answer p {
+            padding-right: 20px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2c3e36;
+            color: #bdc3c7;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-info li {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info li svg {
+            width: 18px;
+            height: 18px;
+            margin-top: 3px;
+            fill: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 992px) {
+            .concept-layout {
+                flex-direction: column;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div>安息园<span>设计</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#services">设计服务</a></li>
+                    <li><a href="#projects">案例展示</a></li>
+                    <li><a href="#concept">设计理念</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="cta-btn">联系我们</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>为生命寻一处静谧安放之所</h1>
+                <p>专业的陵园规划与景观设计服务，融合自然生态与人文精神，打造庄重肃穆、富有生机的现代化纪念空间。</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary">查看设计案例</a>
+                    <a href="#concept" class="btn-outline">了解设计理念</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>我们的核心优势</h2>
+                    <p>以敬畏之心对待每一个设计项目，确保每一处景观都承载着对逝者的尊重与怀念。</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <h3>整体规划</h3>
+                        <p>从选址、总体规划到单体建筑设计，提供一站式陵园开发咨询服务，确保功能分区合理，流线顺畅。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        </div>
+                        <h3>景观营造</h3>
+                        <p>运用植物配置、地形改造和水景设计，营造四季有景、庄重而不压抑的纪念环境。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3>人文纪念</h3>
+                        <p>结合雕塑艺术与纪念墙设计，赋予空间情感寄托，让生者与逝者在此进行精神对话。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Concept Section -->
+        <section id="concept" class="design-concept">
+            <div class="container">
+                <div class="concept-layout">
+                    <div class="concept-image">
+                        <img src="https://picsum.photos/seed/graveyard2/600/400" alt="陵园景观设计实景">
+                    </div>
+                    <div class="concept-content">
+                        <h2>现代陵园设计理念</h2>
+                        <p>传统的陵园设计往往给人以阴冷、压抑的刻板印象。我们主张打破这一固有观念，将现代景观设计理念引入殡葬领域。通过引入自然光线、通透的材质以及开阔的视线，使陵园成为一个能够抚慰生者心灵、传承生命记忆的场所。</p>
+                        <ul class="concept-list">
+                            <li><strong>生态优先：</strong> 采用乡土树种，减少维护成本，构建可持续的微生态系统。</li>
+                            <li><strong>功能复合：</strong> 设置骨灰堂、纪念广场、追思亭等功能区域，满足多样化需求。</li>
+                            <li><strong>艺术表达：</strong> 将建筑美学与自然景观相融合，提升整体环境品质。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>专业设计服务</h2>
+                    <p>我们提供全流程的专业设计支持，涵盖从概念构思到落地施工的各个环节。</p>
+                </div>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                            墓园总体规划
+                        </h3>
+                        <p>针对大型公墓或家族墓园，进行整体用地分析、功能分区规划及交通流线设计，确保规划科学合理。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.74 5.88-5.74 5.88-5.74-5.88L12 2.69M12 22l-5.74-5.88L12 10.24l5.74 5.88L12 22z"></path></svg>
+                            生态安葬区设计
+                        </h3>
+                        <p>设计花坛葬、树葬、草坪葬等生态安葬区域，强调与自然环境的和谐共生，降低土地占用。</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                            纪念性建筑与雕塑
+                        </h3>
+                        <p>设计牌坊、纪念碑、纪念墙等标志性建筑，以及具有艺术感染力的主题雕塑，提升陵园文化品位。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Showcase -->
+        <section id="projects" class="showcase">
+            <div class="container">
+                <div class="section-header">
+                    <h2>精选设计案例</h2>
+                    <p>通过实际项目展示我们对陵园设计的理解与把控能力。</p>
+                </div>
+                <div class="showcase-grid">
+                    <div class="showcase-item">
+                        <img src="https://picsum.photos/seed/graveyard3/400/300" alt="江南园林风格墓园">
+                        <div class="showcase-overlay">
+                            <h4>江南园林风格墓园</h4>
+                            <p>运用江南园林造景手法，营造移步换景的静谧氛围。</p>
+                        </div>
+                    </div>
+                    <div class="showcase-item">
+                        <img src="https://picsum.photos/seed/graveyard4/400/300" alt="现代简约纪念广场">
+                        <div class="showcase-overlay">
+                            <h4>现代简约纪念广场</h4>
+                            <p>以线条和几何形体为主，体现庄重与现代感。</p>
+                        </div>
+                    </div>
+                    <div class="showcase-item">
+                        <img src="https://picsum.photos/seed/graveyard5/400/300" alt="生态纪念林">
+                        <div class="showcase-overlay">
+                            <h4>生态纪念林</h4>
+                            <p>回归自然，让生命以另一种形式延续。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                    <p>关于陵园设计与建设的常见疑问。</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">陵园设计需要考虑哪些法律法规？</div>
+                        <div class="faq-answer">
+                            <p>陵园设计必须严格遵守国家及地方的殡葬管理条例、土地使用规划法规以及文物保护相关法律。我们拥有丰富的项目经验，确保所有设计符合现行政策要求。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">生态安葬区的维护成本高吗？</div>
+                        <div class="faq-answer">
+                            <p>生态安葬区（如花坛葬、树葬）相比传统墓穴，其维护成本较低。因为不需要定期进行墓碑清洗、石材维护等，主要依靠自然生长的植物进行景观维护。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">设计周期通常需要多长时间？</div>
+                        <div class="faq-answer">
+                            <p>设计周期取决于项目的规模和复杂程度。从初步规划到施工图设计，小型项目通常需要1-3个月，大型综合性陵园项目可能需要6个月以上。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>安息园设计</h3>
+                    <p>我们致力于通过专业的设计语言，为逝者营造永恒的宁静，为生者提供心灵的慰藉。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#services">服务项目</a></li>
+                        <li><a href="#projects">设计案例</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务支持</h4>
+                    <ul>
+                        <li><a href="#faq">常见问题</a></li>
+                        <li><a href="#">政策法规</a></li>
+                        <li><a href="#">施工流程</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>北京市朝阳区殡葬文化产业园A座</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span>design@anxiyuan.com</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <span>400-123-4567</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 安息园设计有限公司 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 手风琴交互
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他打开的项目
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项目状态
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
