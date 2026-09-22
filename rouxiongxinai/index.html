@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="揉胸吸奶小说专题页，提供相关题材小说推荐、阅读指南及分类导航，专注于优质原创与同人作品分享。">
+    <meta name="keywords" content="揉胸吸奶小说,小说推荐,同人创作,阅读指南">
+    <title>揉胸吸奶小说-优质小说推荐与阅读指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #fd79a8;
+            --text-main: #2d3436;
+            --text-secondary: #636e72;
+            --bg-body: #f5f6fa;
+            --bg-card: #ffffff;
+            --spacing-unit: 1rem;
+            --border-radius: 12px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        .search-box {
+            display: flex;
+            background: var(--bg-body);
+            border-radius: 20px;
+            padding: 0.3rem 1rem;
+            border: 1px solid transparent;
+        }
+
+        .search-box:focus-within {
+            border-color: var(--secondary-color);
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 150px;
+            color: var(--text-main);
+        }
+
+        .search-box button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 4rem 0;
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .tag:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Main Content */
+        main {
+            padding-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--accent-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: normal;
+        }
+
+        .section-title a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Book Grid */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .book-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-cover {
+            height: 320px;
+            background-color: #dfe6e9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .book-card:hover .book-cover img {
+            transform: scale(1.05);
+        }
+
+        .book-info {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .book-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .book-tags {
+            margin-top: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .mini-tag {
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            background: rgba(108, 92, 231, 0.1);
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        /* Reading Guide Section */
+        .guide-section {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .guide-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guide-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Categories */
+        .category-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-item {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .category-item:hover {
+            border-color: var(--secondary-color);
+            background-color: #fcfcff;
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .category-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            padding-left: 1rem;
+            border-left: 2px solid #eee;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d3436;
+            color: #b2bec3;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            margin: 0 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .book-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .search-box input {
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .book-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>📚</span> 探索小说
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">分类</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">作者专区</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索小说...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>揉胸吸奶小说</h1>
+            <p>探索多元题材，发现优质原创与同人创作。我们致力于提供安全、舒适的阅读环境，涵盖各种风格与流派。</p>
+            <div class="hero-tags">
+                <a href="#" class="tag">情感故事</a>
+                <a href="#" class="tag">都市生活</a>
+                <a href="#" class="tag">同人创作</a>
+                <a href="#" class="tag">情感互动</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- Quick Categories -->
+        <section>
+            <div class="category-list">
+                <a href="#" class="category-item">
+                    <span class="category-icon">📖</span>
+                    <div class="category-name">现代都市</div>
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">🏰</span>
+                    <div class="category-name">古风玄幻</div>
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">🏫</span>
+                    <div class="category-name">校园青春</div>
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">💑</span>
+                    <div class="category-name">情感互动</div>
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">🎭</span>
+                    <div class="category-name">同人改编</div>
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">🆕</span>
+                    <div class="category-name">最新发布</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Featured Books -->
+        <section>
+            <div class="section-title">
+                热门推荐
+                <a href="#">查看全部 ></a>
+            </div>
+            <div class="book-grid">
+                <!-- Book 1 -->
+                <article class="book-card">
+                    <a href="#" class="book-cover">
+                        <img src="https://picsum.photos/seed/novel1/300/400" alt="小说封面">
+                    </a>
+                    <div class="book-info">
+                        <h2 class="book-title"><a href="#">温柔乡里的旧时光</a></h2>
+                        <div class="book-meta">作者：墨染青衣 | 更新至：第 42 章</div>
+                        <div class="book-tags">
+                            <span class="mini-tag">都市</span>
+                            <span class="mini-tag">情感</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 2 -->
+                <article class="book-card">
+                    <a href="#" class="book-cover">
+                        <img src="https://picsum.photos/seed/novel2/300/400" alt="小说封面">
+                    </a>
+                    <div class="book-info">
+                        <h2 class="book-title"><a href="#">深巷里的回响</a></h2>
+                        <div class="book-meta">作者：夜雨听风 | 更新至：第 15 章</div>
+                        <div class="book-tags">
+                            <span class="mini-tag">悬疑</span>
+                            <span class="mini-tag">心理</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 3 -->
+                <article class="book-card">
+                    <a href="#" class="book-cover">
+                        <img src="https://picsum.photos/seed/novel3/300/400" alt="小说封面">
+                    </a>
+                    <div class="book-info">
+                        <h2 class="book-title"><a href="#">午后阳光下的秘密</a></h2>
+                        <div class="book-meta">作者：流年似水 | 更新至：连载中</div>
+                        <div class="book-tags">
+                            <span class="mini-tag">校园</span>
+                            <span class="mini-tag">日常</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 4 -->
+                <article class="book-card">
+                    <a href="#" class="book-cover">
+                        <img src="https://picsum.photos/seed/novel4/300/400" alt="小说封面">
+                    </a>
+                    <div class="book-info">
+                        <h2 class="book-title"><a href="#">梦回前朝</a></h2>
+                        <div class="book-meta">作者：古风墨客 | 更新至：第 88 章</div>
+                        <div class="book-tags">
+                            <span class="mini-tag">古风</span>
+                            <span class="mini-tag">宫廷</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Reading Guide -->
+        <section class="guide-section">
+            <div class="section-title">阅读指南与规范</div>
+            <div class="guide-grid">
+                <div class="guide-item">
+                    <h3>🛡️ 内容安全规范</h3>
+                    <p>我们严格遵守平台内容审核标准，所有发布作品必须符合法律法规及社区公约。用户在浏览时请保持理性，尊重作者版权。</p>
+                </div>
+                <div class="guide-item">
+                    <h3>🔍 推荐阅读方式</h3>
+                    <p>建议通过分类导航快速定位感兴趣的题材。关注更新频率较高的作者，不错过精彩章节。使用搜索功能可以精准查找特定关键词。</p>
+                </div>
+                <div class="guide-item">
+                    <h3>❤️ 互动与反馈</h3>
+                    <p>遇到喜欢的作品可以收藏或分享。对作品有建议或发现违规内容，欢迎通过反馈通道联系我们，共同维护良好的阅读社区。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Updates -->
+        <section>
+            <div class="section-title">
+                最新更新
+                <a href="#">更多更新 ></a>
+            </div>
+            <ul style="background: var(--bg-card); border-radius: var(--border-radius); box-shadow: var(--shadow); overflow: hidden;">
+                <li style="padding: 1rem; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <a href="#" style="font-weight: 600;">爱在黄昏日落时</a>
+                        <span style="color: var(--text-secondary); font-size: 0.85rem; margin-left: 10px;">作者：流云</span>
+                    </div>
+                    <a href="#" style="color: var(--primary-color); font-size: 0.9rem;">阅读</a>
+                </li>
+                <li style="padding: 1rem; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <a href="#" style="font-weight: 600;">深夜食堂的秘密</a>
+                        <span style="color: var(--text-secondary); font-size: 0.85rem; margin-left: 10px;">作者：美食家</span>
+                    </div>
+                    <a href="#" style="color: var(--primary-color); font-size: 0.9rem;">阅读</a>
+                </li>
+                <li style="padding: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <a href="#" style="font-weight: 600;">未完待续的故事</a>
+                        <span style="color: var(--text-secondary); font-size: 0.85rem; margin-left: 10px;">作者：匿名</span>
+                    </div>
+                    <a href="#" style="color: var(--primary-color); font-size: 0.9rem;">阅读</a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="section-title">常见问题</div>
+            <div class="faq-item">
+                <div class="faq-question">如何搜索特定类型的小说？</div>
+                <div class="faq-answer">您可以使用顶部的搜索框输入关键词，或者点击分类导航中的标签，如“都市”、“古风”等进行筛选。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">作品更新频率如何？</div>
+                <div class="faq-answer">我们鼓励作者保持稳定更新。大部分热门作品每周更新 1-3 次，具体以作者页面显示为准。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">可以投稿自己的小说吗？</div>
+                <div class="faq-answer">是的，我们欢迎原创作者投稿。请通过作者专区提交您的作品简介和样章，审核通过后将进行发布。</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">版权声明</a>
+                <a href="#">用户协议</a>
+                <a href="#">隐私政策</a>
+                <a href="#">联系客服</a>
+            </div>
+            <p class="copyright">© 2023 探索小说网 版权所有. 仅供成人娱乐参考，请文明阅读。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
