@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PandaTV直播 - 国内领先的互动视频直播平台，提供高清电竞、户外、娱乐、音乐等多元化直播内容。查看热门主播、实时赛事及精彩回放，体验极致互动的直播体验。">
+    <meta name="keywords" content="PandaTV直播,熊猫TV,电竞直播,户外直播,虎牙,斗鱼,直播平台">
+    <title>PandaTV直播 - 高清互动电竞与娱乐直播平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff5a00;
+            --secondary-color: #ff9d00;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --text-secondary: #b3b3b3;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            background: #2a2a2a;
+            border-radius: 20px;
+            padding: 4px 12px;
+            width: 300px;
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            outline: none;
+            flex: 1;
+            padding: 4px;
+        }
+
+        .search-bar button {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(18,18,18,1)), url('https://picsum.photos/seed/pandatvhero/1920/600') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 24px;
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Category Section */
+        .categories {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: #333;
+        }
+
+        .category-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .category-name {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Live Stream Section */
+        .live-section {
+            padding: 40px 0;
+        }
+
+        .live-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stream-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .stream-card:hover {
+            transform: scale(1.02);
+        }
+
+        .thumbnail {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+        }
+
+        .thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .live-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #ff0000;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .live-badge::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            background-color: white;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        .stream-info {
+            padding: 12px;
+        }
+
+        .stream-title {
+            font-size: 14px;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .streamer-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .streamer-avatar {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #444;
+        }
+
+        .streamer-name {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .viewer-count {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-left: auto;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: #1a1a1a;
+            padding: 60px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+            color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 60px 0 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            max-width: 300px;
+            font-size: 14px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .live-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none; /* Simplified mobile nav for demo */
+            }
+            .search-bar {
+                display: none;
+            }
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            .live-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#ff5a00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="#ff5a00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="#ff5a00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>PandaTV</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">电竞</a>
+                <a href="#">户外</a>
+                <a href="#">音乐</a>
+                <a href="#">秀场</a>
+                <a href="#">体育</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索主播、游戏或频道...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content container">
+                <h1>发现直播的无限可能</h1>
+                <p>汇聚全球顶尖主播，高清流畅的实时互动体验。无论是激烈的电竞对决，还是轻松的户外探索，PandaTV直播都为您呈现最真实的精彩瞬间。</p>
+                <a href="#" class="cta-button">立即观看热门直播</a>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="container categories">
+            <h2 class="section-title">热门直播分类</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <span class="category-icon">🎮</span>
+                    <div class="category-name">英雄联盟</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🔫</span>
+                    <div class="category-name">CS:GO</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">⚽</span>
+                    <div class="category-name">足球直播</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🏀</span>
+                    <div class="category-name">NBA直播</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎸</span>
+                    <div class="category-name">音乐现场</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎤</span>
+                    <div class="category-name">户外探险</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">💄</span>
+                    <div class="category-name">美妆互动</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🤖</span>
+                    <div class="category-name">二次元</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Streams -->
+        <section class="container live-section">
+            <h2 class="section-title">正在直播</h2>
+            <div class="live-grid">
+                <!-- Stream Item 1 -->
+                <article class="stream-card">
+                    <div class="thumbnail">
+                        <span class="live-badge">LIVE</span>
+                        <img src="https://picsum.photos/seed/game1/400/225" alt="英雄联盟直播画面">
+                    </div>
+                    <div class="stream-info">
+                        <h3 class="stream-title">S13总决赛现场解说，带你回顾经典战役</h3>
+                        <div class="streamer-info">
+                            <img src="https://picsum.photos/seed/avatar1/50/50" alt="主播头像" class="streamer-avatar">
+                            <span class="streamer-name">电竞老司机</span>
+                        </div>
+                        <span class="viewer-count">12.5w 观看</span>
+                    </div>
+                </article>
+
+                <!-- Stream Item 2 -->
+                <article class="stream-card">
+                    <div class="thumbnail">
+                        <span class="live-badge">LIVE</span>
+                        <img src="https://picsum.photos/seed/game2/400/225" alt="户外直播画面">
+                    </div>
+                    <div class="stream-info">
+                        <h3 class="stream-title">深夜独自露营，听虫鸣看星空</h3>
+                        <div class="streamer-info">
+                            <img src="https://picsum.photos/seed/avatar2/50/50" alt="主播头像" class="streamer-avatar">
+                            <span class="streamer-name">荒野行者</span>
+                        </div>
+                        <span class="viewer-count">3.2w 观看</span>
+                    </div>
+                </article>
+
+                <!-- Stream Item 3 -->
+                <article class="stream-card">
+                    <div class="thumbnail">
+                        <span class="live-badge">LIVE</span>
+                        <img src="https://picsum.photos/seed/game3/400/225" alt="音乐直播画面">
+                    </div>
+                    <div class="stream-info">
+                        <h3 class="stream-title">吉他弹唱，点歌环节开始啦！</h3>
+                        <div class="streamer-info">
+                            <img src="https://picsum.photos/seed/avatar3/50/50" alt="主播头像" class="streamer-avatar">
+                            <span class="streamer-name">民谣小屋</span>
+                        </div>
+                        <span class="viewer-count">8.9w 观看</span>
+                    </div>
+                </article>
+
+                <!-- Stream Item 4 -->
+                <article class="stream-card">
+                    <div class="thumbnail">
+                        <span class="live-badge">LIVE</span>
+                        <img src="https://picsum.photos/seed/game4/400/225" alt="体育直播画面">
+                    </div>
+                    <div class="stream-info">
+                        <h3 class="stream-title">NBA常规赛：湖人 vs 勇士 实时战况</h3>
+                        <div class="streamer-info">
+                            <img src="https://picsum.photos/seed/avatar4/50/50" alt="主播头像" class="streamer-avatar">
+                            <span class="streamer-name">体育大爆炸</span>
+                        </div>
+                        <span class="viewer-count">45.1w 观看</span>
+                    </div>
+                </article>
+                
+                <!-- Stream Item 5 -->
+                <article class="stream-card">
+                    <div class="thumbnail">
+                        <span class="live-badge">LIVE</span>
+                        <img src="https://picsum.photos/seed/game5/400/225" alt="游戏直播画面">
+                    </div>
+                    <div class="stream-info">
+                        <h3 class="stream-title">极限操作！带你上王者</h3>
+                        <div class="streamer-info">
+                            <img src="https://picsum.photos/seed/avatar5/50/50" alt="主播头像" class="streamer-avatar">
+                            <span class="streamer-name">峡谷指挥官</span>
+                        </div>
+                        <span class="viewer-count">5.6w 观看</span>
+                    </div>
+                </article>
+
+                <!-- Stream Item 6 -->
+                <article class="stream-card">
+                    <div class="thumbnail">
+                        <span class="live-badge">LIVE</span>
+                        <img src="https://picsum.photos/seed/game6/400/225" alt="聊天直播画面">
+                    </div>
+                    <div class="stream-info">
+                        <h3 class="stream-title">闲聊日常，分享生活趣事</h3>
+                        <div class="streamer-info">
+                            <img src="https://picsum.photos/seed/avatar6/50/50" alt="主播头像" class="streamer-avatar">
+                            <span class="streamer-name">快乐小妹</span>
+                        </div>
+                        <span class="viewer-count">1.2w 观看</span>
+                    </div>
+                </article>
+
+                <!-- Stream Item 7 -->
+                <article class="stream-card">
+                    <div class="thumbnail">
+                        <span class="live-badge">LIVE</span>
+                        <img src="https://picsum.photos/seed/game7/400/225" alt="美食直播画面">
+                    </div>
+                    <div class="stream-info">
+                        <h3 class="stream-title">深夜放毒：自制麻辣小龙虾</h3>
+                        <div class="streamer-info">
+                            <img src="https://picsum.photos/seed/avatar7/50/50" alt="主播头像" class="streamer-avatar">
+                            <span class="streamer-name">吃货联盟</span>
+                        </div>
+                        <span class="viewer-count">9.4w 观看</span>
+                    </div>
+                </article>
+
+                <!-- Stream Item 8 -->
+                <article class="stream-card">
+                    <div class="thumbnail">
+                        <span class="live-badge">LIVE</span>
+                        <img src="https://picsum.photos/seed/game8/400/225" alt="绘画直播画面">
+                    </div>
+                    <div class="stream-info">
+                        <h3 class="stream-title">日系插画教学，零基础入门</h3>
+                        <div class="streamer-info">
+                            <img src="https://picsum.photos/seed/avatar8/50/50" alt="主播头像" class="streamer-avatar">
+                            <span class="streamer-name">画笔下的梦</span>
+                        </div>
+                        <span class="viewer-count">4.3w 观看</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>高清流畅</h3>
+                        <p>支持多种清晰度切换，智能适配网络环境，确保直播画面丝滑流畅。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💬</div>
+                        <h3>实时互动</h3>
+                        <p>弹幕、点赞、礼物、连麦，全方位互动功能，拉近主播与观众的距离。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💎</div>
+                        <h3>独家内容</h3>
+                        <p>汇聚各领域头部主播，提供独家赛事直播、综艺综艺及原创内容。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>PandaTV</h2>
+                    <p>致力于打造最优质的互动视频直播平台，连接每一个热爱生活的你。在这里，发现兴趣，结识朋友，分享快乐。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">媒体报道</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">用户协议</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">主播入驻</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">Bilibili</a></li>
+                        <li><a href="#">抖音</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 PandaTV Live. All Rights Reserved. 本页面仅为设计演示，非官方网站。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
